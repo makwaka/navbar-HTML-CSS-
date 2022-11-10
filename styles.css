@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --div-background-color: dodgerblue;
+    --div-text-color: white;
+    --div-color:red;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif , monospace;
+}
+
+nav{
+  background: var(--div-background-color);
+  height: 80px;
+  width: 100%; 
+}
+
+label.logo{
+    color: var(--div-text-color);
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 75px;
+    font-weight: bold;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: var(--div-text-color);
+    font-size: 17px;
+    padding:7px 13px ;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+a.active, a:hover{
+    background:var(--div-color);
+    transition: .5s;
+
+}
+
+.checkBtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right:40px ;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+/* When the width maximum is at 952px, This happens */
+@media only screen and (max-width: 952px){
+    label.logo{
+     font-size: 30px;
+     padding-left: 50px;   
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+/* To cater for mobile view */
+@media only screen and (max-width: 858px){
+    .checkBtn{
+        display:block ;
+    }
+    ul{
+      position: fixed;  
+      width: 100%;
+      height: 100vh;
+      background: rgb(13, 13, 83);
+      top: 80px;
+      /* Here it's like we're removing the ul view */
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+       font-size:20px ; 
+    }
+    a:hover, a.active{
+        background: none;
+        color:#0082e6;
+    }
+    /* When the checkbox is checked, show ul or return ul to view */
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+
+
+
+section{
+    background: url('bgg.jpg') no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+    background-position: center;
+}
